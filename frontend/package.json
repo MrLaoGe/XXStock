@@ -1,0 +1,8 @@
+{
+  "name": "x2stock-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": { "dev": "vite", "build": "vite build", "preview": "vite preview" },
+  "dependencies": { "vue": "^3.4.38", "vue-router": "^4.4.3", "echarts": "^5.5.1", "marked": "^14.0.0" },
+  "devDependencies": { "@vitejs/plugin-vue": "^5.1.2", "vite": "^5.4.2" }
+}

@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./x2stock.db
+      - TUSHARE_TOKEN=${TUSHARE_TOKEN:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-}
+    volumes:
+      - db_data:/app/data
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+volumes:
+  db_data:

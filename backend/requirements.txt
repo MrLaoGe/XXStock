@@ -1,0 +1,14 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.35
+pydantic==2.9.2
+pydantic-settings==2.5.2
+pandas==2.2.3
+numpy==1.26.4
+tushare==1.4.7
+akshare==1.15.0
+openai==1.51.0
+apscheduler==3.10.4
+python-dotenv==1.0.1
+redis==5.0.8
+aiofiles==24.1.0
