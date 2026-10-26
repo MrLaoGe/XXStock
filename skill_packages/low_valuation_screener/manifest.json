@@ -1,0 +1,12 @@
+{
+  "skill_id": "low-valuation-screener",
+  "name": "低估值个股筛选",
+  "version": "1.0.0",
+  "api_version": "x2stock.skill.v1",
+  "python_requires": ">=3.11,<4.0",
+  "entrypoint": "main.py",
+  "dependencies": [],
+  "permissions": ["market.daily_basic.read", "market.stocks.read"],
+  "input_schema": "input.schema.json",
+  "output_schema": "output.schema.json"
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["protocol", "status", "skill_id", "version", "as_of", "result", "provenance", "missing_data", "assumptions", "risks"],
+  "properties": {
+    "protocol": {"const": "x2stock.skill.v1"},
+    "status": {"enum": ["ok", "error"]},
+    "skill_id": {"const": "low-valuation-screener"},
+    "version": {"const": "1.0.0"},
+    "as_of": {"type": ["string", "null"]},
+    "result": {
+      "type": "object",
+      "required": ["items", "eligible_count", "excluded_count", "exclusions"],
+      "properties": {
+        "items": {"type": "array", "items": {"type": "object"}},
+        "eligible_count": {"type": "integer", "minimum": 0},
+        "excluded_count": {"type": "integer", "minimum": 0},
+        "exclusions": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {"type": "array", "items": {"type": "object"}},
+    "missing_data": {"type": "array", "items": {"type": "string"}},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "risks": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

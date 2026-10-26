@@ -5,10 +5,13 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=sqlite:///./x2stock.db
+      - DATABASE_URL=sqlite:////app/data/x2stock.db
       - TUSHARE_TOKEN=${TUSHARE_TOKEN:-}
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - OPENAI_BASE_URL=${OPENAI_BASE_URL:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-6.1-sol}
+      - X2STOCK_ADMIN_KEY=${X2STOCK_ADMIN_KEY:-}
+      - SKILLS_DIR=/app/data/skills
     volumes:
       - db_data:/app/data
   frontend:

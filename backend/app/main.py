@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
-from app.routers import stocks, market, quant, ai, admin
+from app.routers import stocks, market, quant, ai, admin, skills_api
 from app.database import Base, engine
 from app.config import settings
 
@@ -21,6 +21,7 @@ app.include_router(market.router)
 app.include_router(quant.router)
 app.include_router(ai.router)
 app.include_router(admin.router)
+app.include_router(skills_api.router)
 
 frontend_dist = os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist")
 if os.path.exists(frontend_dist):

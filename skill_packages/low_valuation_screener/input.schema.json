@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["protocol", "params", "data", "meta"],
+  "properties": {
+    "protocol": {"const": "x2stock.skill.v1"},
+    "params": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "top_n": {"type": "integer", "minimum": 1, "maximum": 500},
+        "max_pe": {"type": "number", "exclusiveMinimum": 0},
+        "max_pb": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "data": {
+      "type": "object",
+      "required": ["daily_basic", "stocks"],
+      "properties": {
+        "daily_basic": {"type": "array", "items": {"type": "object"}},
+        "stocks": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "meta": {"type": "object"}
+  },
+  "additionalProperties": false
+}

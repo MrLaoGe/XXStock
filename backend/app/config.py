@@ -11,6 +11,10 @@ class Settings(BaseSettings):
     COLLECTION_TIME: str = "17:30"
     HOST: str = "0.0.0.0"
     PORT: int = 8000
+    X2STOCK_ADMIN_KEY: str = ""
+    SKILLS_DIR: str = "./skills"
+    SKILL_RUN_TIMEOUT_SECONDS: int = 60
+    SKILL_INSTALL_TIMEOUT_SECONDS: int = 180
 
     class Config:
         env_file = ".env"

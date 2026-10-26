@@ -18,6 +18,45 @@ class Stock(Base):
     list_status = Column(String(1), default="L")
     created_at = Column(DateTime, server_default=func.now())
 
+class SkillInstall(Base):
+    __tablename__ = "skills"
+    id = Column(Integer, primary_key=True)
+    skill_id = Column(String(100), unique=True, nullable=False, index=True)
+    name = Column(String(200), nullable=False)
+    version = Column(String(50), nullable=False)
+    api_version = Column(String(50), nullable=False)
+    path = Column(String(1000), nullable=False)
+    entrypoint = Column(String(500), nullable=False)
+    status = Column(String(20), default="installed")
+    enabled = Column(Integer, default=1)
+    manifest = Column(JSON, nullable=False)
+    installed_at = Column(DateTime, server_default=func.now())
+    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
+
+class SkillRun(Base):
+    __tablename__ = "skill_runs"
+    id = Column(Integer, primary_key=True)
+    skill_id = Column(String(100), nullable=False, index=True)
+    version = Column(String(50), nullable=False)
+    status = Column(String(20), nullable=False)
+    duration_ms = Column(Integer)
+    input_payload = Column(JSON)
+    output_payload = Column(JSON)
+    error_message = Column(Text)
+    stderr = Column(Text)
+    created_at = Column(DateTime, server_default=func.now())
+
+class SkillInstallJob(Base):
+    __tablename__ = "skill_install_jobs"
+    id = Column(String(36), primary_key=True)
+    status = Column(String(20), nullable=False, default="queued")
+    skill_id = Column(String(100))
+    version = Column(String(50))
+    message = Column(Text)
+    archive_path = Column(String(1000), nullable=False)
+    created_at = Column(DateTime, server_default=func.now())
+    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
+
 class DailyQuote(Base):
     __tablename__ = "daily_quotes"
     id = Column(Integer, primary_key=True)

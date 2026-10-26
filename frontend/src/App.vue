@@ -7,6 +7,7 @@
         <router-link to="/stocks">股票列表</router-link>
         <router-link to="/backtest">回测</router-link>
         <router-link to="/assistant">AI 助手</router-link>
+        <router-link to="/skills">Skills</router-link>
       </div>
     </nav>
     <router-view />
